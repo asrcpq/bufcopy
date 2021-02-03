@@ -6,6 +6,7 @@ bufcopy_proc() {
 	echo -nE "$BUFFER" | xsel -i -b
 }
 bufcopy_fq() {
+	print -s "$BUFFER$POSTDISPLAY"
 	eval "$BUFFER$POSTDISPLAY" &
 	disown
 	exit
