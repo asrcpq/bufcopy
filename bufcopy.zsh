@@ -1,19 +1,19 @@
-bufcopy_reset() {
+_bufcopy_reset() {
 	BUFFER="reset"
 	zle accept-line
 }
-bufcopy_proc() {
+_bufcopy_proc() {
 	echo -nE "$BUFFER" | xsel -i -b
 }
-bufcopy_fq() {
+_bufcopy_fq() {
 	print -s "$BUFFER$POSTDISPLAY"
 	eval "$BUFFER$POSTDISPLAY" &
 	disown
 	exit
 }
-bindkey '' bufcopy_proc
-zle -N bufcopy_proc
-bindkey '' bufcopy_reset
-zle -N bufcopy_reset
-bindkey '' bufcopy_fq
-zle -N bufcopy_fq
+bindkey '' _bufcopy_proc
+zle -N _bufcopy_proc
+bindkey '' _bufcopy_reset
+zle -N _bufcopy_reset
+bindkey '' _bufcopy_fq
+zle -N _bufcopy_fq
