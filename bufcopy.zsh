@@ -7,7 +7,7 @@ _bufcopy_proc() {
 }
 _bufcopy_fq() {
 	print -s "$BUFFER$POSTDISPLAY"
-	eval "$BUFFER$POSTDISPLAY" &
+	eval "$BUFFER$POSTDISPLAY" &>/dev/null &
 	disown
 	exit
 }
